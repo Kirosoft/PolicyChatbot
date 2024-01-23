@@ -34,7 +34,7 @@ def main(req: HttpRequest) -> HttpResponse:
 
     # use the input question to do a lookup similarity search in elastic
     store.client.indices.refresh(index=INDEX)
-    results = store.similarity_search(question, k = 10)
+    results = store.similarity_search(question, k = ES_NUM_DOCS)
 
     # transform the search results into json payload
     doc_results = []
