@@ -21,6 +21,8 @@ ELASTIC_INDEX = os.getenv("ELASTIC_INDEX", "embedding_test_index")
 ELASTIC_NUM_DOCS = os.getenv("ELASTIC_NUM_DOCS", 5)
 OPENAI_AI_EMBEDDING_MODEL = os.getenv("OPENAI_AI_EMBEDDING_MODEL", "text-embedding-ada-002")
 
+BASE_URL = os.getenv("BASE_URL", "https://www.github.com/UKHO/docs/blob/main/")
+
 # Embedding model used to vectorise
 embeddings = OpenAIEmbeddings(openai_api_key = OPENAI_API_KEY, model = OPENAI_AI_EMBEDDING_MODEL)
 
@@ -33,6 +35,12 @@ db = ElasticsearchStore(
     # distance_strategy="EUCLIDEAN_DISTANCE"
     # distance_strategy="DOT_PRODUCT"    
 )
+
+def convert_to_url(path, basepath):
+    url = f"{BASE_URL}{path[len(basepath):]}"
+    head, tail = os.path.split(path)
+    return f'<a href="{url}">{tail}</a>'
+
 def index_docs_elastic(directory_path, extension):
     md_files = find_md_files(directory_path, extension)
 
@@ -49,7 +57,7 @@ def index_docs_elastic(directory_path, extension):
 
         # Adding metadata to documents
         for i, doc in enumerate(docs):
-            doc.metadata["filename"] = file_path
+            doc.metadata["filename"] = convert_to_url(file_path, directory_path)
 
         index = db.from_documents(docs, embeddings, index_name=ELASTIC_INDEX, es_cloud_id=ELASTIC_CLOUD_ID, es_api_key = ELASTIC_API_KEY)
         print("data imported into elastic")

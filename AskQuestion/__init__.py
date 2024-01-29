@@ -12,7 +12,7 @@ def main(req: HttpRequest) -> HttpResponse:
     INDEX = os.getenv("ES_INDEX", "workplace-app-docs")
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
     EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
-    ES_NUM_DOCS = os.getenv("ES_NUM_DOCS", 10)
+    ES_NUM_DOCS = int(os.getenv("ES_NUM_DOCS", "10"))
 
     logging.info(f'Python HTTP trigger function processed a request.')
 
@@ -51,6 +51,5 @@ def main(req: HttpRequest) -> HttpResponse:
     for chunk in get_llm().stream(qa_prompt):
         answer += chunk.content
 
-
-    return HttpResponse(answer)
+    return HttpResponse("<br />".join(answer.split("\n")))
  
