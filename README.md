@@ -4,6 +4,11 @@
 
 This application is designed to provide an AI chatbot interface with any text document sources.
 
+## Policy Chatbot running in Microsoft teams app
+  
+![image](https://github.com/Kirosoft/PolicyChatbot/assets/3432241/ad9f8f7c-80a9-426a-9587-12cb6d9ed19e)
+
+
 ## Tech Stack:
 
 - OpenAI ChatGPT4 as the LLM Model
@@ -55,9 +60,7 @@ body:
 ```
 
 
-## Chatbot running in teams app
-  
-![image](https://github.com/Kirosoft/PolicyChatbot/assets/3432241/ad9f8f7c-80a9-426a-9587-12cb6d9ed19e)
+
 
 ## Ingest tool
 
