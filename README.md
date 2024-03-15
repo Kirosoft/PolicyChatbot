@@ -53,3 +53,19 @@ body:
 ```
 { "question": "What is policy on pull requests" }
 ```
+
+
+## Chatbot running in teams app
+  
+![image](https://github.com/Kirosoft/PolicyChatbot/assets/3432241/ad9f8f7c-80a9-426a-9587-12cb6d9ed19e)
+
+## Ingest tool
+
+![image](https://github.com/Kirosoft/PolicyChatbot/assets/3432241/bb4357bf-9adc-44c9-9f58-ac66acce710a)
+
+## Search Phase
+
+![image](https://github.com/Kirosoft/PolicyChatbot/assets/3432241/65f932b7-a856-4270-906a-7a595e02f077)
+
+
+
