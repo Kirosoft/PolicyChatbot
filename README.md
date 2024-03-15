@@ -9,7 +9,7 @@ This application is designed to provide an AI chatbot interface with any text do
 - OpenAI ChatGPT4 as the LLM Model
 - ElasticSearchCloud as the vectorstore
 - Azure functions to run the chatgpt as a functional lambda
-
+- Azure function tools - requires python 3.10 installed
 
 -Step 1. Download the document you want to chat with to local drive
 
